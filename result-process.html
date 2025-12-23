@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Abrir la app</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background: #f7f7f7;
+        color: #111;
+      }
+      .card {
+        background: #fff;
+        padding: 24px 28px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        max-width: 420px;
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 20px;
+      }
+      p {
+        margin: 0 0 12px;
+        color: #444;
+      }
+      .hint {
+        font-size: 13px;
+        color: #666;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 16px;
+        background: #111;
+        color: #fff;
+        border-radius: 10px;
+        text-decoration: none;
+      }
+    </style>
+    <script>
+      // Solo abrir la app cuando el usuario pulse el botón
+      window.addEventListener("DOMContentLoaded", () => {
+        // Propaga los parámetros de consulta hacia el deep link
+        const params = window.location.search || "";
+        const deepLink = "spark-app://result-process" + params;
+
+        const link = document.getElementById("manual-link");
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.location.href = deepLink;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Volver a la app</h1>
+      <p>Pulsa el botón para volver a Spark:</p>
+      <a id="manual-link" class="btn" href="#">Abrir Spark</a>
+      <p class="hint">Asegúrate de tener instalada la app.</p>
+    </div>
+  </body>
+</html>
+
