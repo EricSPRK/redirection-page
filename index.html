@@ -46,12 +46,16 @@
       }
     </style>
     <script>
-      // Solo abrir la app cuando el usuario pulse el botón
+      // Redirección automática al cargar la página
       window.addEventListener("DOMContentLoaded", () => {
         // Propaga los parámetros de consulta hacia el deep link
         const params = window.location.search || "";
         const deepLink = "spark-app://result-process" + params;
 
+        // Redirección automática
+        window.location.href = deepLink;
+
+        // Fallback: si la redirección no funciona, el botón sigue disponible
         const link = document.getElementById("manual-link");
         link.addEventListener("click", (e) => {
           e.preventDefault();
@@ -69,5 +73,4 @@
     </div>
   </body>
 </html>
-
 
