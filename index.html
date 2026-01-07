@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Abrir la app</title>
+    <title>Opening App...</title>
     <style>
       body {
         font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -30,10 +30,7 @@
       p {
         margin: 0 0 12px;
         color: #444;
-      }
-      .hint {
-        font-size: 13px;
-        color: #666;
+        line-height: 1.5;
       }
       .btn {
         display: inline-block;
@@ -43,6 +40,7 @@
         color: #fff;
         border-radius: 10px;
         text-decoration: none;
+        font-weight: 500;
       }
       .spinner {
         width: 40px;
@@ -59,16 +57,16 @@
       }
     </style>
     <script>
-      // Redirección automática al cargar la página
+      // Automatic redirection on page load
       window.addEventListener("DOMContentLoaded", () => {
-        // Propaga los parámetros de consulta hacia el deep link
+        // Propagate query parameters to the deep link
         const params = window.location.search || "";
         const deepLink = "spark-app://result-process" + params;
 
-        // Redirección automática
+        // Automatic redirect
         window.location.href = deepLink;
 
-        // Fallback: si la redirección no funciona, el botón sigue disponible
+        // Fallback: manual click event
         const link = document.getElementById("manual-link");
         link.addEventListener("click", (e) => {
           e.preventDefault();
@@ -79,11 +77,10 @@
   </head>
   <body>
     <div class="card">
-      <h1>Refirigiendo a la app ...</h1>
+      <h1>Redirecting you back...</h1>
       <div class="spinner"></div>
-      <p>Si no se redirige automáticamente, pulsa el botón para volver a Spark:</p>
-      <a id="manual-link" class="btn" href="#">Volver a la app</a>
+      <p>If the app does not open automatically, please tap the button below to return to Spark:</p>
+      <a id="manual-link" class="btn" href="#">Return to App</a>
     </div>
   </body>
 </html>
-
