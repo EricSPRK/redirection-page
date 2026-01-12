@@ -61,7 +61,7 @@
       window.addEventListener("DOMContentLoaded", () => {
         // Propagate query parameters to the deep link
         const params = window.location.search || "";
-        const deepLink = "spark-app://result-process" + params;
+        const deepLink = "spark-app://home/result-process" + params;
 
         // Automatic redirect
         window.location.href = deepLink;
@@ -84,3 +84,4 @@
     </div>
   </body>
 </html>
+
